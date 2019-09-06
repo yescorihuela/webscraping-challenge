@@ -69,3 +69,6 @@ for page_number in range(start_page, last_page + 1):
         web_content_list.append(book_data)
         print(f"Book {n} added...")
         n += 1
+
+df = pandas.DataFrame(web_content_list)
+df.to_csv("scrapper_books.csv")
