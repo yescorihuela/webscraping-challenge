@@ -18,3 +18,14 @@ start_page = int(paging[0])
 last_page = int(paging[1])
 web_content_list = []
 n = 1 # To get the number of each appended book
+
+for page_number in range(start_page, last_page + 1):
+    
+    # To form and scrap with pagination
+    url = base_url + f'/catalogue/page-{page_number}.html'
+    r = requests.get(url)
+    c = r.content
+    soup = BeautifulSoup(c,"html.parser")
+    
+    # To extract all the articles present in the current page
+    articles = soup.find_all("article",{"class":"product_pod"})
