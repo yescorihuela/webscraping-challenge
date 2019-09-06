@@ -60,3 +60,12 @@ for page_number in range(start_page, last_page + 1):
         book_data['category'] = category
         book_data['cover'] = cover
         book_data['title'] = title
+
+        # To check table data
+        for header, content in zip(table_th, table_td):
+            clean_key = re.sub("([\s\.\(\)])","_", header.text.strip().lower())
+            book_data[clean_key] = re.sub("(€|£)", "", content.text.strip())
+
+        web_content_list.append(book_data)
+        print(f"Book {n} added...")
+        n += 1
