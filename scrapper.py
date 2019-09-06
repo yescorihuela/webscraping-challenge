@@ -52,3 +52,11 @@ for page_number in range(start_page, last_page + 1):
         cover = base_url + "/".join(book_soup.select("div.item.active img")[0].attrs['src'].split("/")[2:])
         table_th = book_soup.find("table", {'class': 'table table-striped'}).find_all("th")
         table_td = book_soup.find("table", {'class': 'table table-striped'}).find_all("td")
+                 
+        book_data = {}
+        book_data['title'] = title
+        book_data['price'] = price
+        book_data['stock'] = stock
+        book_data['category'] = category
+        book_data['cover'] = cover
+        book_data['title'] = title
