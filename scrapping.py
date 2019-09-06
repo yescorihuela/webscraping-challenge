@@ -72,3 +72,16 @@ for page_number in range(start_page, last_page + 1):
 
 df = pandas.DataFrame(web_content_list)
 df.to_csv("scrapper_books.csv")
+
+
+# To modularize
+
+def get_site_paging():
+  pass
+
+def page_content(url):
+
+  pass
+
+def get_book_details(url):
+  pass
