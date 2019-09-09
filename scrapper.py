@@ -1,8 +1,11 @@
 import re
 import requests
 import pandas
+import time
 from bs4 import BeautifulSoup
 
+
+start_time = time.time()
 base_url = "http://books.toscrape.com/"
 
 # To get the html contents
@@ -72,7 +75,8 @@ for page_number in range(start_page, last_page + 1):
 
 df = pandas.DataFrame(web_content_list)
 df.to_csv("scrapper_books.csv")
-
+total_duration = time.time() - start_time
+print(f'Total duration: {total_duration}')
 
 # These functions are for modularize and clean this solution
 
